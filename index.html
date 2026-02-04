@@ -4,129 +4,171 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>8 Ball Pool Store</title>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #0f172a;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle, #0f172a, #000);
       color: white;
     }
+
     header {
-      padding: 20px;
       text-align: center;
-      background: #1e293b;
+      padding: 30px;
+      background: #111827;
+      border-bottom: 3px solid #38bdf8;
     }
+
     header h1 {
+      font-size: 2.5em;
       margin: 0;
       color: #38bdf8;
     }
+
+    header p {
+      margin-top: 8px;
+      color: #cbd5e1;
+    }
+
     .container {
-      padding: 20px;
       max-width: 1000px;
       margin: auto;
+      padding: 20px;
     }
+
+    h2 {
+      margin-top: 35px;
+      color: #22c55e;
+    }
+
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 15px;
     }
+
     .card {
-      background: #1e293b;
+      background: rgba(30, 41, 59, 0.9);
       padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(56,189,248,0.3);
+      transition: 0.2s;
     }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
     .card h3 {
       margin: 0;
       color: #38bdf8;
     }
+
+    .card p {
+      color: #e2e8f0;
+    }
+
     button {
-      padding: 10px;
       width: 100%;
-      border: none;
-      border-radius: 8px;
+      padding: 12px;
       margin-top: 10px;
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
-      background: #38bdf8;
       font-weight: bold;
+      background: linear-gradient(90deg, #38bdf8, #22c55e);
+      color: black;
     }
+
     button:hover {
-      background: #0ea5e9;
+      opacity: 0.85;
     }
+
     form {
-      margin-top: 25px;
-      background: #1e293b;
-      padding: 15px;
-      border-radius: 12px;
+      background: rgba(30, 41, 59, 0.95);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 15px;
     }
+
     input, select {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-top: 8px;
       margin-bottom: 15px;
-      border-radius: 8px;
+      border-radius: 10px;
       border: none;
+      outline: none;
     }
+
     footer {
       text-align: center;
       padding: 15px;
-      background: #1e293b;
-      margin-top: 30px;
+      background: #111827;
+      margin-top: 40px;
+      border-top: 2px solid #38bdf8;
     }
-    .login-box {
-      margin-top: 20px;
-      background: #334155;
+
+    .admin-box {
+      background: rgba(51, 65, 85, 0.9);
       padding: 15px;
-      border-radius: 12px;
+      border-radius: 15px;
     }
   </style>
 </head>
+
 <body>
 
 <header>
   <h1>🎱 8 Ball Pool Store</h1>
-  <p>Jual Cheat / Aim Tool / Coin Top Up Aman & Cepat</p>
+  <p>Jual Cheat • Aim Tool • Top Up Coins Aman & Cepat</p>
 </header>
 
 <div class="container">
 
   <!-- Produk -->
-  <h2>📌 Katalog Produk</h2>
-  <div class="products" id="productList">
+  <h2>🛒 Katalog Produk</h2>
+  <div class="products">
+
     <div class="card">
       <h3>Aim Tool Premium</h3>
       <p>Harga: Rp50.000</p>
-      <button onclick="selectProduct('Aim Tool Premium')">Order</button>
+      <button onclick="selectProduct('Aim Tool Premium')">Order Sekarang</button>
     </div>
 
     <div class="card">
-      <h3>Cheat All Feature</h3>
+      <h3>Snake Engine</h3>
       <p>Harga: Rp100.000</p>
-      <button onclick="selectProduct('Cheat All Feature')">Order</button>
+      <button onclick="selectProduct('Cheat All Feature')">Order Sekarang</button>
     </div>
 
     <div class="card">
       <h3>Top Up Coins 1B</h3>
       <p>Harga: Rp75.000</p>
-      <button onclick="selectProduct('Top Up Coins 1B')">Order</button>
+      <button onclick="selectProduct('Top Up Coins 1B')">Order Sekarang</button>
     </div>
+
   </div>
 
   <!-- Pembayaran -->
   <h2>💳 Pembayaran</h2>
   <div class="card">
-    <p>Pembayaran bisa via:</p>
+    <p>Pembayaran tersedia via:</p>
     <ul>
-      <li>QRIS (Upload gambar QR)</li>
-      <li>Transfer Dana / OVO / Gopay</li>
+      <li>QRIS</li>
+      <li>DANA</li>
+      <li>OVO</li>
+      <li>GOPAY</li>
     </ul>
-    <p><b>Nanti admin kirim nomor pembayaran lewat WhatsApp.</b></p>
+    <p><b>Nomor pembayaran akan dikirim admin lewat WhatsApp.</b></p>
   </div>
 
   <!-- Form Order -->
-  <h2>📝 Form Order</h2>
+  <h2>📝 Form Order Otomatis</h2>
+
   <form onsubmit="sendWhatsApp(event)">
-    <label>Nama:</label>
+    <label>Nama Kamu:</label>
     <input type="text" id="name" required>
 
     <label>Pilih Produk:</label>
@@ -149,66 +191,4 @@
       <option>GOPAY</option>
     </select>
 
-    <button type="submit">Kirim Order ke WhatsApp</button>
-  </form>
-
-  <!-- Admin Login -->
-  <h2>🔐 Admin Login (Demo)</h2>
-  <div class="login-box">
-    <p>Login admin untuk edit produk (versi sederhana).</p>
-
-    <input type="password" id="adminPass" placeholder="Masukkan Password Admin">
-    <button onclick="adminLogin()">Login Admin</button>
-
-    <p id="adminStatus"></p>
-  </div>
-
-</div>
-
-<footer>
-  <p>© 2026 8 Ball Pool Store | Order via WhatsApp</p>
-</footer>
-
-<script>
-  let adminPassword = "admin123"; // ganti password
-
-  function selectProduct(productName) {
-    document.getElementById("product").value = productName;
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  }
-
-  function sendWhatsApp(event) {
-    event.preventDefault();
-
-    let name = document.getElementById("name").value;
-    let product = document.getElementById("product").value;
-    let gameid = document.getElementById("gameid").value;
-    let payment = document.getElementById("payment").value;
-
-    let phone = "628XXXXXXXXXX"; // ganti nomor WA kamu
-
-    let message =
-      `Halo Admin, saya mau order:%0A` +
-      `Nama: ${name}%0A` +
-      `Produk: ${product}%0A` +
-      `ID Game: ${gameid}%0A` +
-      `Pembayaran: ${payment}%0A`;
-
-    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
-  }
-
-  function adminLogin() {
-    let pass = document.getElementById("adminPass").value;
-
-    if (pass === adminPassword) {
-      document.getElementById("adminStatus").innerHTML =
-        "✅ Login berhasil! (Next step: Dashboard Admin)";
-    } else {
-      document.getElementById("adminStatus").innerHTML =
-        "❌ Password salah!";
-    }
-  }
-</script>
-
-</body>
-</html>
+    <button type="submit">📲 Kir
