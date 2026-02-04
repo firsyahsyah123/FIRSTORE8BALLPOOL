@@ -1,194 +1,86 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>8 Ball Pool Store</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIRSTORE8BALLPOOL</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: radial-gradient(circle, #0f172a, #000);
-      color: white;
+      background: #f9f9f9;
+      color: #111;
     }
 
+    /* HEADER */
     header {
       text-align: center;
-      padding: 30px;
-      background: #111827;
-      border-bottom: 3px solid #38bdf8;
+      padding: 60px 20px;
+      background: white;
+      border-bottom: 3px solid #00ff99;
     }
 
-    header h1 {
-      font-size: 2.5em;
-      margin: 0;
-      color: #38bdf8;
+    /* TEXT MENYALA + GERAK */
+    .glow-text {
+      font-size: 45px;
+      font-weight: bold;
+      color: #00ff99;
+      text-shadow: 0 0 10px #00ff99,
+                   0 0 20px #00ff99,
+                   0 0 40px #00cc77;
+      animation: glowMove 2s infinite alternate;
+    }
+
+    @keyframes glowMove {
+      from {
+        text-shadow: 0 0 5px #00ff99,
+                     0 0 15px #00ff99;
+        transform: scale(1);
+      }
+      to {
+        text-shadow: 0 0 20px #00ff99,
+                     0 0 50px #00ff99,
+                     0 0 80px #00cc77;
+        transform: scale(1.05);
+      }
     }
 
     header p {
-      margin-top: 8px;
-      color: #cbd5e1;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    h2 {
-      margin-top: 35px;
-      color: #22c55e;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 15px;
-    }
-
-    .card {
-      background: rgba(30, 41, 59, 0.9);
-      padding: 15px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(56,189,248,0.3);
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: scale(1.03);
-    }
-
-    .card h3 {
-      margin: 0;
-      color: #38bdf8;
-    }
-
-    .card p {
-      color: #e2e8f0;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      background: linear-gradient(90deg, #38bdf8, #22c55e);
-      color: black;
-    }
-
-    button:hover {
-      opacity: 0.85;
-    }
-
-    form {
-      background: rgba(30, 41, 59, 0.95);
-      padding: 20px;
-      border-radius: 15px;
       margin-top: 15px;
+      font-size: 18px;
+      color: #555;
     }
 
-    input, select {
-      width: 100%;
-      padding: 12px;
-      margin-top: 8px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      border: none;
-      outline: none;
+    /* BUTTON */
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 15px 30px;
+      background: #00ff99;
+      color: black;
+      font-weight: bold;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(0,255,153,0.5);
     }
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #111827;
-      margin-top: 40px;
-      border-top: 2px solid #38bdf8;
+    .btn:hover {
+      background: #00cc77;
+      transform: scale(1.05);
     }
 
-    .admin-box {
-      background: rgba(51, 65, 85, 0.9);
-      padding: 15px;
-      border-radius: 15px;
+    /* CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
     }
-  </style>
-</head>
 
-<body>
-
-<header>
-  <h1>🎱 8 Ball Pool Store</h1>
-  <p>Jual Cheat • Aim Tool • Top Up Coins Aman & Cepat</p>
-</header>
-
-<div class="container">
-
-  <!-- Produk -->
-  <h2>🛒 Katalog Produk</h2>
-  <div class="products">
-
-    <div class="card">
-      <h3>Aim Tool Premium</h3>
-      <p>Harga: Rp50.000</p>
-      <button onclick="selectProduct('Aim Tool Premium')">Order Sekarang</button>
-    </div>
-
-    <div class="card">
-      <h3>Snake Engine</h3>
-      <p>Harga: Rp100.000</p>
-      <button onclick="selectProduct('Cheat All Feature')">Order Sekarang</button>
-    </div>
-
-    <div class="card">
-      <h3>Top Up Coins 1B</h3>
-      <p>Harga: Rp75.000</p>
-      <button onclick="selectProduct('Top Up Coins 1B')">Order Sekarang</button>
-    </div>
-
-  </div>
-
-  <!-- Pembayaran -->
-  <h2>💳 Pembayaran</h2>
-  <div class="card">
-    <p>Pembayaran tersedia via:</p>
-    <ul>
-      <li>QRIS</li>
-      <li>DANA</li>
-      <li>OVO</li>
-      <li>GOPAY</li>
-    </ul>
-    <p><b>Nomor pembayaran akan dikirim admin lewat WhatsApp.</b></p>
-  </div>
-
-  <!-- Form Order -->
-  <h2>📝 Form Order Otomatis</h2>
-
-  <form onsubmit="sendWhatsApp(event)">
-    <label>Nama Kamu:</label>
-    <input type="text" id="name" required>
-
-    <label>Pilih Produk:</label>
-    <select id="product" required>
-      <option value="">-- Pilih Produk --</option>
-      <option>Aim Tool Premium</option>
-      <option>Cheat All Feature</option>
-      <option>Top Up Coins 1B</option>
-    </select>
-
-    <label>ID Game / Username:</label>
-    <input type="text" id="gameid" required>
-
-    <label>Metode Pembayaran:</label>
-    <select id="payment" required>
-      <option value="">-- Pilih --</option>
-      <option>QRIS</option>
-      <option>DANA</option>
-      <option>OVO</option>
-      <option>GOPAY</option>
-    </select>
-
-    <button type="submit">📲 Kir
+    /* CARD */
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,
